@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>JWT Authentication Test</title>
+</head>
+
+<body>
+  <div>
+    <button id="test">Access Customer</button>
+    <button id="goodLogin">Good Login</button>
+    <button id="badLogin">Bad Login</button>
+    <button id="logout">Logout</button>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#test').click(function() {
+      $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1:3000/api/v1/customers',
+        beforeSend: function(xhr) {
+          if (localStorage.token) {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
+          }
+        },
+        success: function(data) {
+          console.log('Hello ' + JSON.stringify(data) + '! You have successfully accessed to /api/v1/customers.');
+        },
+        error: function() {
+          alert("Sorry, you are not logged in.");
+        }
+      });
+    });
+    $('#goodLogin').click(function() {
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "http://127.0.0.1:3000/api/auth/sign_in",
+        data: {
+          user: {
+            email: "test@mydomain.com",
+            password: "default"
+          }
+        },
+        success: function(data, textStatus, request) {
+          localStorage.token = data.token;
+          console.log('Got a token from the server! Token: ' + data.resource.email + " " + localStorage.token);
+        },
+        error: function() {
+          alert("Login Failed");
+        }
+      });
+    });
+    $('#badLogin').click(function() {
+      $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:3000/api/auth/sign_in",
+        data: {
+          user: {
+            email: "test_admin@mydomain.com",
+            password: "password"
+          }
+        },
+        success: function(data) {
+          alert("ERROR: it is not supposed to alert.");
+        },
+        error: function() {
+          alert("Login Failed");
+        }
+      });
+    });
+    $('#logout').click(function() {
+      $.post(
+          "http://127.0.0.1:3000/api/auth/sign_out",
+          {
+              'authenticity_token': localStorage.token,
+              '_method': 'DELETE'
+          }
+      ).done(function(data) {
+          localStorage.clear();
+          console.log('sign_out status : ' + data.status);
+      }).fail(function() {
+          alert("Logout Failed");
+      });
+    });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customers</h1>
+<div class="container">
+<table id="customer_table" class="display table table-striped table-bordered" style="width: 1050px;">
+  <thead>
+    <tr>
+      <th>Organisation name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postcode</th>
+      <th>Country</th>
+      <th>Phone number</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.organisation_name %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.state %></td>
+        <td><%= customer.postcode %></td>
+        <td><%= customer.country %></td>
+        <td><%= customer.phone_number %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'New Customer', new_customer_path %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#customer_table').DataTable();
+  });
+</script>
