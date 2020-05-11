@@ -161,7 +161,7 @@ Please use the html file, available in "misc_test" folder for AJAX based API tes
 
 TODOs:
 ------
-	Make the application LDAP devise authenticable
-	Dockerize the application for development environment
-	Dockerize the production application with heroku support
+	- Make the application LDAP devise authenticable
+	- Dockerize the application for development environment
+	- Dockerize the production application with heroku support
 	
