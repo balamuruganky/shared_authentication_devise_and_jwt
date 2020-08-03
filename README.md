@@ -158,3 +158,5 @@ TODOs:
 ------
 	*) Dockerize the application for development environment
 	*) Dockerize the production application with heroku support
+
+rails s -b 'ssl://localhost:3000?key=./localhost.key&cert=./localhost.crt'

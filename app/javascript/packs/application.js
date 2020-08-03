@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('datatables.net-bs4')
+require("packs/leaflet_map")
 
 import 'jquery'
 import 'bootstrap'
@@ -22,3 +23,5 @@ global.$ = jQuery;
 
 import "../stylesheets/application"
 global.toastr = require("toastr")
+
+import 'leaflet'
