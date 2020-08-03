@@ -161,14 +161,5 @@ Please use the html file, available in "misc_test" folder for AJAX based API tes
 
 TODOs:
 ------
-<<<<<<< HEAD
 	*) Dockerize the application for development environment
 	*) Dockerize the production application with heroku support
-
-rails s -b 'ssl://localhost:3000?key=./localhost.key&cert=./localhost.crt'
-=======
-	- Make the application LDAP devise authenticable
-	- Dockerize the application for development environment
-	- Dockerize the production application with heroku support
-	
->>>>>>> 4928d9e78740d901391a2b9857d51b42d45c8f32
