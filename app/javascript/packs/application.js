@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('datatables.net-bs4')
-require("packs/leaflet_map")
+//require("packs/leaflet_map")
 
 import 'jquery'
 import 'bootstrap'
