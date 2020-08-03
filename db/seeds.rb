@@ -7,21 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Initialize default accounts:
-User.create! do |u|
+User.create do |u|
   u.email     = 'test_admin@mydomain.com'
   u.password  = 'default'
   u.user_role = false
   u.superadmin_role = true
 end
 
-User.create! do |u|
+User.create do |u|
   u.email     = 'test_supervisor@mydomain.com'
   u.password  = 'default'
   u.user_role = false
   u.supervisor_role = true
 end
 
-User.create! do |u|
+User.create do |u|
     u.email     = 'test@mydomain.com'
     u.password  = 'default'
 end
