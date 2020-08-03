@@ -1,6 +1,6 @@
 class Api::V1::BaseController < ActionController::Base #InheritedResources::Base
   before_action :authenticate_user!
-  prepend_before_filter :get_auth_token
+  prepend_before_action :get_auth_token
 
   respond_to :json
 

@@ -24,4 +24,4 @@ global.$ = jQuery;
 import "../stylesheets/application"
 global.toastr = require("toastr")
 
-import 'leaflet'
+//import 'leaflet'
