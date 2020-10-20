@@ -1,5 +1,5 @@
-Here's the deal!!!!
-===================
+Goal
+====
 
   - Web application shall create a shared authentication platform with Devise for both API and non-API usage.
   - Web application shall handle 4 type of users.
@@ -8,6 +8,10 @@ Here's the deal!!!!
       - Supervisior (Login required and allowed to view, export all the records. No create and delete is allowed)
       - Super admin (Full control including record deletion through rails-admin dashboard)
   - Super admin shall create user and user can reset password or access forgot password option.
+
+Live demo:
+----------
+https://still-journey-99004.herokuapp.com/
 
 Gems used:
 ----------
