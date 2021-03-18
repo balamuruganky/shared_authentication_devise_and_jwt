@@ -90,15 +90,15 @@ API test using CuRL
 
 	Sign in
 	-------
-	curl -X POST -v -H 'Content-Type: application/json' http://127.0.0.1:3000/api/auth/sign_in -d '{"user" : {"email": "test_admin@mydomain.com", "password": "default" }}'
+	curl -X POST -v -H 'Content-Type: application/json' https://still-journey-99004.herokuapp.com/api/auth/sign_in -d '{"user" : {"email": "test_admin@mydomain.com", "password": "default" }}'
 
 	Access Customers.json
 	----------------------
-	curl -X GET -v -H 'Content-Type: application/json' -H 'Authorization: Bearer <Token returned from sign_in api>' http://127.0.0.1:3000/api/v1/customers
+	curl -X GET -v -H 'Content-Type: application/json' -H 'Authorization: Bearer <Token returned from sign_in api>' https://still-journey-99004.herokuapp.com/api/v1/customers
 
 	Sign out
 	--------
-	curl -X DELETE -v -H 'Content-Type: application/json' http://127.0.0.1:3000/api/auth/sign_out -d '{"authenticity_token" : "<Token returned from sign_in api>" }'
+	curl -X DELETE -v -H 'Content-Type: application/json' https://still-journey-99004.herokuapp.com/api/auth/sign_out -d '{"authenticity_token" : "<Token returned from sign_in api>" }'
 
 	Note : Replace the token returned from 'api/auth/sign_in' to <Token returned from sign_in api>
 
