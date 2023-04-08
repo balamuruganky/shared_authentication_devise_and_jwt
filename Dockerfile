@@ -4,7 +4,7 @@ RUN apk add \
     build-base \
     postgresql-dev \
     git
-COPY Gemfile* .
+COPY Gemfile* ./
 RUN gem install bundler -v $BUNDLER_VERSION
 RUN gem update --system 2.6.3
 #RUN bundle config set deployment true
