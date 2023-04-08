@@ -1,21 +1,19 @@
-development:
+default: &default
   adapter: postgresql
-  database: template_designer_development
-  pool: 5
-  timeout: 5000
+  encoding: unicode
+  host: db
   username: postgres
-  password:
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: template_designer_development
 
 test:
-  adapter: postgresql
+  <<: *default
   database: template_designer_test
-  pool: 5
-  timeout: 5000
-  username: postgres
-  password:
 
 production:
-  adapter: postgresql
+  <<: *default
   database: template_designer_production
-  pool: 5
-  timeout: 5000
